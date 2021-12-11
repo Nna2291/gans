@@ -2,36 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MAIN WINDOW</title>
+    <title>Control Panel</title>
     <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-<h1 id='degr'>{{lab}}</h1>
+  <table>
+    <tr>
+      <td style="width: 20%">
+        <h1>Состояние ГАНС</h1>
+      </td>
+      <td>
+        <h1>Навигационная карта</h1>
+      </td>
+      <td>
+        <h1>Состояние ПА</h1>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td> <h2>МИ1</h2> </td> <td> <h2>Фото</h2> </td>
+          </tr>
+          <tr>
+            <td> <h2>МИ2</h2> </td> <td> <h2>Фото</h2> </td>
+          </tr>
+          <tr>
+            <td> <h2>МИ3</h2> </td> <td> <h2>Фото</h2> </td>
+          </tr>
+        </table>
+        <h1>Рабочие частоты</h1>
+        <table>
+          <tr>
+            <td> <h2>Ч1 (МИ1)</h2> </td> <td> <input type="text" name="mi1" value=""> </td>
+          </tr>
+          <tr>
+            <td> <h2>Ч2 (МИ2)</h2> </td> <td> <input type="text" name="mi2" value=""> </td>
+          </tr>
+          <tr>
+            <td> <h2>Ч3 (МИ3)</h2> </td> <td> <input type="text" name="mi3" value=""> </td>
+          </tr>
+          <tr>
+            <td> <h2>ЧП (ПА)</h2> </td> <td> <input type="text" name="pa" value=""> </td>
+          </tr>
+          <tr>
+            <td> <br> <br> </td>
+          </tr>
+          <tr>
+            <td><button type="button" name="button">ON</button></td>
+            <td><button type="button" name="button">OFF</button></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 
-<button text="Button" id="on" style="width: 448px"/>
+<!-- <button text="Button" id="on" style="width: 448px"/>
 ON
 <button text="Button" id="off" style="width: 448px"/>
-OFF
+OFF -->
 <script>
-    function gett() {
+function gett(){
         $.ajax({
-            url: "/data-deg",
-            type: "get",
+      url: "/data-deg",
+      type: "get",
 
-            success: function (response) {
-                $('#degr').text(response['message']);
-            },
-            error: function (xhr) {
-                //Do Something to handle error
-            }
-        });
-    }
-
-    $(document).ready(function () {
-        gett();
-        setInterval('gett()', 500);
+      success: function(response) {
+        $('#degr').text(response['message']);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
     });
+}
+ $(document).ready(function(){
+            gett();
+            setInterval('gett()',500);
+        });
 </script>
 </body>
 </html>

@@ -14,23 +14,24 @@ ON
 <button text="Button" id="off" style="width: 448px"/>
 OFF
 <script>
-function gett(){
+    function gett() {
         $.ajax({
-      url: "/data-deg",
-      type: "get",
+            url: "/data-deg",
+            type: "get",
 
-      success: function(response) {
-        $('#degr').text(response['message']);
-      },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
-    });
-}
- $(document).ready(function(){
-            gett();
-            setInterval('gett()',500);
+            success: function (response) {
+                $('#degr').text(response['message']);
+            },
+            error: function (xhr) {
+                //Do Something to handle error
+            }
         });
+    }
+
+    $(document).ready(function () {
+        gett();
+        setInterval('gett()', 500);
+    });
 </script>
 </body>
 </html>

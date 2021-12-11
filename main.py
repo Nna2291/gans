@@ -1,6 +1,5 @@
-import random
 import socket
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -12,8 +11,10 @@ def main():
 
 @app.route("/data-deg", methods=["GET"])
 def deg():
-    data = s.recv(1024)
-    return jsonify({'message': int.from_bytes(data, 'big')})
+    j = s.recv(1024)
+    l = len(j.decode("utf-8"))
+    data = j.decode("utf-8")[1:l - 1].split(',')
+    return jsonify({'message': data[0]})
 
 
 @app.route("/on", methods=["POST"])

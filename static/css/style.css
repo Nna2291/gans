@@ -53,3 +53,21 @@ button {
 button:active {
   background-color: #666699;
 }
+
+div#text_over_img {
+  position: relative;
+  left: 25%;
+}
+.text_over_img {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  color: black;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+img {
+  width: 50%;
+}

@@ -5,7 +5,8 @@
     <title>Control Panel</title>
     <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> -->
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
   <table>
@@ -24,13 +25,31 @@
       <td>
         <table>
           <tr>
-            <td> <h2>МИ1</h2> </td> <td> <h2>Фото</h2> </td>
+            <td> <h2>МИ1</h2> </td>
+            <td>
+              <div id="text_over_img">
+                <img src="../img/izl.jpg" alt="1">
+              <div class="text_over_img">1</div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td> <h2>МИ2</h2> </td> <td> <h2>Фото</h2> </td>
+            <td> <h2>МИ2</h2> </td>
+            <td>
+              <div id="text_over_img">
+                <img src="../img/izl.jpg" alt="1">
+              <div class="text_over_img">1</div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td> <h2>МИ3</h2> </td> <td> <h2>Фото</h2> </td>
+            <td> <h2>МИ3</h2> </td>
+            <td>
+              <div id="text_over_img">
+                <img src="../img/izl.jpg" alt="1">
+              <div class="text_over_img">1</div>
+              </div>
+            </td>
           </tr>
         </table>
         <h1>Рабочие частоты</h1>
@@ -55,6 +74,9 @@
             <td><button type="button" name="button">OFF</button></td>
           </tr>
         </table>
+      </td>
+      <td>
+        <h1>ФОТО</h1>
       </td>
     </tr>
   </table>

@@ -58,16 +58,56 @@ div#text_over_img {
   position: relative;
   left: 25%;
 }
-.text_over_img {
+.text_over_img_on {
   position: absolute;
-  top: 50%;
-  left: 25%;
-  color: black;
-  text-align: center;
+  top: 18%;
+  background: rgb(0, 255, 0);
+  padding: 8px;
+  color: #222233;
   font-weight: lighter;
-  font-size: 12px;
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+.text_over_img_err {
+  position: absolute;
+  top: 18%;
+  left: 25%;
+  background: rgb(255, 0, 0);
+  padding: 8px;
+  color: #222233;
+  font-weight: lighter;
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+.text_over_img_off {
+  position: absolute;
+  top: 18%;
+  left: 25%;
+  background: rgb(150, 150, 150);
+  padding: 8px;
+  color: #222233;
+  font-weight: lighter;
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+div#left {
+  left: 25%;
+}
+
+div#center {
+  left: 50%;
+}
+
+div#right {
+  left: 75%;
 }
 
 img {
-  width: 50%;
+  width: 100%;
 }

@@ -56,42 +56,44 @@ button:active {
 
 div#text_over_img {
   position: relative;
-  left: 25%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .text_over_img_on {
   position: absolute;
-  top: 18%;
+  top: 45%;
+  transform: translateY(-50%);
   background: rgb(0, 255, 0);
-  padding: 8px;
+  padding: 4%;
   color: #222233;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 75%;
   border: 2px solid black;
   border-radius: 6px;
+
 }
 
 .text_over_img_err {
   position: absolute;
-  top: 18%;
-  left: 25%;
+  top: 0%;
   background: rgb(255, 0, 0);
-  padding: 8px;
+  padding: 4%;
   color: #222233;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 75%;
   border: 2px solid black;
   border-radius: 6px;
 }
 
 .text_over_img_off {
   position: absolute;
-  top: 18%;
-  left: 25%;
+  top: 12%;
   background: rgb(150, 150, 150);
-  padding: 8px;
+  padding: 4%;
   color: #222233;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 75%;
   border: 2px solid black;
   border-radius: 6px;
 }

@@ -62,13 +62,16 @@ div#text_over_img {
 }
 .text_over_img_on {
   position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
+  top: 50%;
+  transform: translateY(-60%);
   background: rgb(0, 255, 0);
-  padding: 4%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 28px;
+  text-align: center;
   color: #222233;
   font-weight: lighter;
-  font-size: 75%;
+  font-size: 12px;
   border: 2px solid black;
   border-radius: 6px;
 
@@ -81,7 +84,7 @@ div#text_over_img {
   padding: 4%;
   color: #222233;
   font-weight: lighter;
-  font-size: 75%;
+  font-size: 12px;
   border: 2px solid black;
   border-radius: 6px;
 }
@@ -93,20 +96,36 @@ div#text_over_img {
   padding: 4%;
   color: #222233;
   font-weight: lighter;
-  font-size: 75%;
+  font-size: 12px;
   border: 2px solid black;
   border-radius: 6px;
 }
 
-div#left {
+div#p_3 {
+  left: 3%;
+}
+
+div#p_18 {
+  left: 18%;
+}
+
+div#p_28 {
+  left: 28%;
+}
+
+div#p_25 {
   left: 25%;
 }
 
-div#center {
+div#p_44 {
+  left: 44%;
+}
+
+div#p_50 {
   left: 50%;
 }
 
-div#right {
+div#p_75 {
   left: 75%;
 }
 

@@ -1,182 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Control Panel</title>
-    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/main.js')}}"></script>
-    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="../static/css/style.css">
-</head>
-<body>
-  <table>
-    <tr>
-      <td style="width: 20%">
-        <h1>Состояние ГАНС</h1>
-      </td>
-      <td width=50%>
-        <h1>Навигационная карта</h1>
-      </td>
-      <td>
-        <h1>Состояние ПА</h1>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <table>
-          <tr>
-            <td> <h2>МИ1</h2> </td>
-            <td>
-              <div id="text_over_img">
-                <img src="../img/radiator.png" alt="1">
-                <div id="p_25" class="text_over_img_on">ИЗ</div>
-                <div id="p_50" class="text_over_img_on">МК</div>
+    <title></title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="panel left">
+          <div class="condition_gans">
+            <h2>Состояние ГАНС</h2>
+            <div class="radiators">
+              <div class="radiator_box">
+                <h3>МИ1</h3>
+                <div class="radiator">
+                  <img src="../img/radiator.png" alt="Image Not Found">
+                  <span class="text_over_img on p_25">ИЗ</span>
+                  <span class="text_over_img on p_50">МК</span>
+                </div>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td> <h2>МИ2</h2> </td>
-            <td>
-              <div id="text_over_img">
-                <img src="../img/radiator.png" alt="1">
-                <div id="p_25" class="text_over_img_on">ИЗ</div>
-                <div id="p_50" class="text_over_img_on">МК</div>
+              <div class="radiator_box">
+                <h3>МИ2</h3>
+                <div class="radiator">
+                  <img src="../img/radiator.png" alt="Image Not Found">
+                  <span class="text_over_img on p_25">ИЗ</span>
+                  <span class="text_over_img on p_50">МК</span>
+                </div>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td> <h2>МИ3</h2> </td>
-            <td>
-              <div id="text_over_img">
-                <img src="../img/radiator.png" alt="1">
-                <div id="p_25" class="text_over_img_on">ИЗ</div>
-                <div id="p_50" class="text_over_img_on">МК</div>
+              <div class="radiator_box">
+                <h3>МИ3</h3>
+                <div class="radiator">
+                  <img src="../img/radiator.png" alt="Image Not Found">
+                  <span class="text_over_img on p_25">ИЗ</span>
+                  <span class="text_over_img on p_50">МК</span>
+                </div>
               </div>
-            </td>
-          </tr>
-        </table>
-        <h1>Рабочие частоты</h1>
-        <table>
-          <tr>
-            <td> <h2>Ч1 (МИ1)</h2> </td> <td> <input type="text" name="mi1" value=""> </td>
-          </tr>
-          <tr>
-            <td> <h2>Ч2 (МИ2)</h2> </td> <td> <input type="text" name="mi2" value=""> </td>
-          </tr>
-          <tr>
-            <td> <h2>Ч3 (МИ3)</h2> </td> <td> <input type="text" name="mi3" value=""> </td>
-          </tr>
-          <tr>
-            <td> <h2>ЧП (ПА)</h2> </td> <td> <input type="text" name="pa" value=""> </td>
-          </tr>
-          <tr>
-            <td> <br> <br> </td>
-          </tr>
-          <tr>
-            <td><button type="button" name="button">ON</button></td>
-            <td><button type="button" name="button">OFF</button></td>
-          </tr>
-          <tr>
-            <td> <h2>1</h2> </td>
-          </tr>
-          <tr>
-            <td> <h2>1</h2> </td>
-          </tr>
-          <tr>
-            <td> <h2>1</h2> </td>
-          </tr>
-        </table>
-      </td>
-      <td>
-        <div id="text_over_img">
-          <img src="../img/map.png" alt="1">
-        </div>
-      </td>
-      <td>
-        <table>
-          <tr>
-            <div id="text_over_img">
-              <img src="../img/submarine.png" alt="1">
-              <div id="p_3" class="text_over_img_on">ГАС</div>
-              <div id="p_18" class="text_over_img_on">ВМА1</div>
-              <div id="p_28" class="text_over_img_on">ВМА2</div>
-              <div id="p_44" class="text_over_img_on">МК</div>
             </div>
-          </tr>
-          <tr>
-            <h1>Параметры</h1>
-          </tr>
-          <tr>
-            <td>
-              <h2>Марш</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Глубина</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Курс</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Лаг</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-
-<!-- <button text="Button" id="on" style="width: 448px"/>
-ON
-<button text="Button" id="off" style="width: 448px"/>
-OFF -->
-<script>
-function gett(){
-        $.ajax({
-      url: "/data-deg",
-      type: "get",
-
-      success: function(response) {
-        $('#degr').text(response['message']);
-      },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
-    });
-}
- $(document).ready(function(){
-            gett();
-            setInterval('gett()',500);
-        });
-</script>
-</body>
+          </div>
+          <div class="connections">
+            <h2>Рабочие частоты</h2>
+            <div class="connection_boxes">
+              <div class="connection_box">
+                <h3>Ч1 (МИ1)</h3>
+                <input type="text" name="mi1" value="">
+              </div>
+              <div class="connection_box">
+                <h3>Ч2 (МИ2)</h3>
+                <input type="text" name="mi2" value="">
+              </div>
+              <div class="connection_box">
+                <h3>Ч3 (МИ3)</h3>
+                <input type="text" name="mi3" value="">
+              </div>
+              <div class="connection_box">
+                <h3>ЧП (ПА)</h3>
+                <input type="text" name="pa" value="">
+              </div>
+            </div>
+          </div>
+          <div class="btns">
+            <div class="btn">
+              <button type="button" name="button1">ВКЛ</button>
+            </div>
+            <div class="btn">
+              <button type="button" name="button2">ВЫКЛ</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel center">
+          <div class="map">
+            <h2>Навигационная карта</h2>
+            <div class="map_img">
+              <img src="../img/map.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="panel right">
+          <div class="condition_pa">
+            <h2>Состояние ПА</h2>
+            <div class="pa_img">
+              <img src="../img/submarine.png" alt="Image Not Found">
+              <span class="text_over_img on p_3">ГАС</span>
+              <span class="text_over_img on p_15">ВМА1</span>
+              <span class="text_over_img on p_25">ВМА2</span>
+              <span class="text_over_img on p_42">МК</span>
+            </div>
+          </div>
+          <div class="preferences">
+            <h2>Параметры</h2>
+            <div class="preferences_box">
+              <form>
+              <div class="preference">
+                <h3>Марш</h3>
+                <input type="text" name="march_text" value="0" oninput="this.form.march_range.value=this.value">
+                <input type="range" name="march_range" min="0" max="100" value="0" step="1" oninput="this.form.march_text.value=this.value">
+              </div>
+              <div class="preference">
+                <h3>Глубина</h3>
+                <input type="text" name="depth_text" value="0" oninput="this.form.depth_range.value=this.value">
+                <input type="range" name="depth_range" min="0" max="100" value="0" step="1" oninput="this.form.depth_text.value=this.value">
+              </div>
+              <div class="preference">
+                <h3>Курс</h3>
+                <input type="text" name="course_text" value="0" oninput="this.form.course_range.value=this.value">
+                <input type="range" name="course_range" min="0" max="100" value="0" step="1" oninput="this.form.course_text.value=this.value">
+              </div>
+              <div class="preference">
+                <h3>Лаг</h3>
+                <input type="text" name="lag_text" value="0" oninput="this.form.lag_range.value=this.value">
+                <input type="range" name="lag_range" min="0" max="100" value="0" step="1" oninput="this.form.lag_text.value=this.value">
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -9,31 +9,57 @@ def main():
     return render_template("home.html")
 
 
-@app.route("/data-deg", methods=["GET"])
-def deg():
-    j = s.recv(1024)
-    l = len(j.decode("utf-8"))
-    data = j.decode("utf-8")[1:l - 1].split(',')
-    return jsonify({'message': data[0]})
-
-
+# @app.route("/data-deg", methods=["GET"])
+# def deg():
+#     j = s.recv(1024)
+#     l = len(j.decode("utf-8"))
+#     data = j.decode("utf-8")[1:l - 1].split(',')
+#     return jsonify({'message': data[0]})
+#
+#
 @app.route("/on", methods=["POST"])
 def on():
-    print('on')
+    host = "192.168.10.3"
+    port = 2000
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
     s.sendall(b'd')
+    s.close()
     return "<p>ON</p>"
 
 
 @app.route("/off", methods=["POST"])
 def off():
-    s.sendall(b's')
-    return "<p>OFF</p>"
-
-
-if __name__ == "__main__":
     host = "192.168.10.3"
     port = 2000
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    s.sendall(b's')
     s.close()
+    return "<p>OFF</p>"
+
+
+@app.route("/oon", methods=["POST"])
+def oon():
+    host = "192.168.10.3"
+    port = 2000
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    s.sendall(b'k')
+    s.close()
+    return "<p>ON</p>"
+
+
+@app.route("/ooff", methods=["POST"])
+def ooff():
+    host = "192.168.10.3"
+    port = 2000
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    s.sendall(b'p')
+    s.close()
+    return "<p>OFF</p>"
+
+
+if __name__ == "__main__":
+    app.run(port=80, debug=True)

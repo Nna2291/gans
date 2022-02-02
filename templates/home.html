@@ -3,162 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <title>Control Panel</title>
-    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> -->
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-  <table>
+<table>
     <tr>
-      <td style="width: 20%">
-        <h1>Состояние ГАНС</h1>
-      </td>
-      <td width=50%>
-        <h1>Навигационная карта</h1>
-      </td>
-      <td>
-        <h1>Состояние ПА</h1>
-      </td>
+        <td style="width: 20%">
+            <h1>Состояние ГАНС</h1>
+        </td>
+        <td width=50%>
+            <h1>Навигационная карта</h1>
+        </td>
+        <td>
+            <h1>Состояние ПА</h1>
+        </td>
     </tr>
     <tr>
-      <td>
-        <table>
-          <tr>
-            <td> <h2>МИ1</h2> </td>
-            <td>
-              <div id="text_over_img">
-                <img src="../img/radiator.png" alt="1">
-                <div id="p_25" class="text_over_img_on">ИЗ</div>
-                <div id="p_50" class="text_over_img_on">МК</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td> <h2>МИ2</h2> </td>
-            <td>
-              <div id="text_over_img">
-                <img src="../img/radiator.png" alt="1">
-                <div id="p_25" class="text_over_img_on">ИЗ</div>
-                <div id="p_50" class="text_over_img_on">МК</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td> <h2>МИ3</h2> </td>
-            <td>
-              <div id="text_over_img">
-                <img src="../img/radiator.png" alt="1">
-                <div id="p_25" class="text_over_img_on">ИЗ</div>
-                <div id="p_50" class="text_over_img_on">МК</div>
-              </div>
-            </td>
-          </tr>
-        </table>
-        <h1>Рабочие частоты</h1>
-        <table>
-          <tr>
-            <td> <h2>Ч1 (МИ1)</h2> </td> <td> <input type="text" name="mi1" value=""> </td>
-          </tr>
-          <tr>
-            <td> <h2>Ч2 (МИ2)</h2> </td> <td> <input type="text" name="mi2" value=""> </td>
-          </tr>
-          <tr>
-            <td> <h2>Ч3 (МИ3)</h2> </td> <td> <input type="text" name="mi3" value=""> </td>
-          </tr>
-          <tr>
-            <td> <h2>ЧП (ПА)</h2> </td> <td> <input type="text" name="pa" value=""> </td>
-          </tr>
-          <tr>
-            <td> <br> <br> </td>
-          </tr>
-          <tr>
-            <td><button type="button" name="button">ON</button></td>
-            <td><button type="button" name="button">OFF</button></td>
-          </tr>
-          <tr>
-            <td> <h2>1</h2> </td>
-          </tr>
-          <tr>
-            <td> <h2>1</h2> </td>
-          </tr>
-          <tr>
-            <td> <h2>1</h2> </td>
-          </tr>
-        </table>
-      </td>
-      <td>
-        <div id="text_over_img">
-          <img src="../img/map.png" alt="1">
-        </div>
-      </td>
-      <td>
-        <table>
-          <tr>
+        <td>
+            <table>
+                <tr>
+                    <td><h2>МИ1</h2></td>
+                    <td>
+                        <div id="text_over_img">
+                            <img src="../static/img/radiator.png" alt="1">
+                            <div id="p_25" class="text_over_img_on">ИЗ</div>
+                            <div id="p_50" class="text_over_img_on">МК</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h2>МИ2</h2></td>
+                    <td>
+                        <div id="text_over_img">
+                            <img src="../static/img/radiator.png" alt="1">
+                            <div id="p_25" class="text_over_img_on">ИЗ</div>
+                            <div id="p_50" class="text_over_img_on">МК</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h2>МИ3</h2></td>
+                    <td>
+                        <div id="text_over_img">
+                            <img src="../static/img/radiator.png" alt="1">
+                            <div id="p_25" class="text_over_img_on">ИЗ</div>
+                            <div id="p_50" class="text_over_img_on">МК</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <h1>Рабочие частоты</h1>
+            <table>
+                <tr>
+                    <td><h2>Ч1 (МИ1)</h2></td>
+                    <td><input type="text" name="mi1" value=""></td>
+                </tr>
+                <tr>
+                    <td><h2>Ч2 (МИ2)</h2></td>
+                    <td><input type="text" name="mi2" value=""></td>
+                </tr>
+                <tr>
+                    <td><h2>Ч3 (МИ3)</h2></td>
+                    <td><input type="text" name="mi3" value=""></td>
+                </tr>
+                <tr>
+                    <td><h2>ЧП (ПА)</h2></td>
+                    <td><input type="text" name="pa" value=""></td>
+                </tr>
+                <tr>
+                    <td><br> <br></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="on" name="button">ON</button>
+                    </td>
+                    <td>
+                        <button type="button" id="off" name="button">OFF</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="on1" name="button">ON</button>
+                    </td>
+                    <td>
+                        <button type="button" id="off1" name="button">OFF</button>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
             <div id="text_over_img">
-              <img src="../img/submarine.png" alt="1">
-              <div id="p_3" class="text_over_img_on">ГАС</div>
-              <div id="p_18" class="text_over_img_on">ВМА1</div>
-              <div id="p_28" class="text_over_img_on">ВМА2</div>
-              <div id="p_44" class="text_over_img_on">МК</div>
+                <img src="../static/img/map.png" alt="1">
             </div>
-          </tr>
-          <tr>
-            <h1>Параметры</h1>
-          </tr>
-          <tr>
-            <td>
-              <h2>Марш</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Глубина</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Курс</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Лаг</h2>
-            </td>
-            <td>
-              <input type="text" name="march" value="">
-            </td>
-            <td width=50%>
-              <input type="range" min="0" max="100" step="1" value="50">
-            </td>
-          </tr>
-        </table>
-      </td>
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <div id="text_over_img">
+                        <img src="../static/img/submarine.png" alt="1">
+                        <div id="p_3" class="text_over_img_on">ГАС</div>
+                        <div id="p_18" class="text_over_img_on">ВМА1</div>
+                        <div id="p_28" class="text_over_img_on">ВМА2</div>
+                        <div id="p_44" class="text_over_img_on">МК</div>
+                    </div>
+                </tr>
+                <tr>
+                    <h1>Параметры</h1>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>Марш</h2>
+                    </td>
+                    <td>
+                        <input type="text" name="march" value="">
+                    </td>
+                    <td width=50%>
+                        <input type="range" min="0" max="100" step="1" value="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>Глубина</h2>
+                    </td>
+                    <td>
+                        <input type="text" name="march" value="">
+                    </td>
+                    <td width=50%>
+                        <input type="range" min="0" max="100" step="1" value="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>Курс</h2>
+                    </td>
+                    <td>
+                        <input type="text" name="march" value="">
+                    </td>
+                    <td width=50%>
+                        <input type="range" min="0" max="100" step="1" value="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>Лаг</h2>
+                    </td>
+                    <td>
+                        <input type="text" name="march" value="">
+                    </td>
+                    <td width=50%>
+                        <input type="range" min="0" max="100" step="1" value="50">
+                    </td>
+                </tr>
+            </table>
+        </td>
     </tr>
-  </table>
+</table>
 
 <!-- <button text="Button" id="on" style="width: 448px"/>
 ON
 <button text="Button" id="off" style="width: 448px"/>
 OFF -->
+<!--
 <script>
 function gett(){
         $.ajax({
@@ -178,5 +186,6 @@ function gett(){
             setInterval('gett()',500);
         });
 </script>
+-->
 </body>
 </html>

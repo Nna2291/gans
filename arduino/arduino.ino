@@ -8,8 +8,9 @@ byte ip[] = {192, 168, 10, 3}; // IP-адрес
 byte myDns[] = {192, 168, 10, 1}; // адрес DNS-сервера
 byte gateway[] = {192, 168, 10, 1}; // адрес сетевого шлюза
 byte subnet[] = {255, 255, 255, 0}; // маска подсети
-bool work = false;
-bool df = false;
+bool trys_bool = false;
+int trys_int = 0;
+bool tryso_bool = false;
 
 EthernetServer server(2000); // создаем сервер, порт 2000
 EthernetClient client; // объект клиент
@@ -25,18 +26,14 @@ void setup() {
   server.begin(); // включаем ожидание входящих соединений
   Serial.begin(9600); // выводим IP-адрес контроллера
 }
-void trys() {
+void trys(int i) {
   digitalWrite(7, HIGH);
-  delay(200);
+  delay(i);
   digitalWrite(7, LOW);
-  delay(200);
+  delay(i);
 }
 void tryso() {
-
-  digitalWrite(7, HIGH);
-  delay(50);
   digitalWrite(7, LOW);
-  delay(50);
 }
 void on() {
   digitalWrite(DV1, HIGH);
@@ -52,44 +49,33 @@ void off() {
 
 
 void loop() {
-  if (work == true) {
-    trys();
-  }
-  if (df == true){
-    tryso();
-    }
+  String message;
   client = server.available(); // ожидаем объект клиент
   if (client) {
     // есть данные от клиента
     if (clientAlreadyConnected == false) {
-      // сообщение о подключении
-      Serial.println("Client connected");
-      client.println("Server ready"); // ответ клиенту
       clientAlreadyConnected = true;
     }
 
     while (client.available() > 0) {
       char chr = client.read(); // чтение символа
-      server.write(chr); // передача клиенту
-      Serial.write(chr);
-      switch (chr)
-      {
-        case 'd':
-          work = true;
-          break;
-        case 's':
-          work = false;
-          break;
-        case 'k':
-          df = true;
-          break;
-        case 'p':
-          df = false;
-          break;
-        default:
-          digitalWrite(7, HIGH);
-          break;
-      }
+      server.write(chr);
+      message += String(chr);
     }
+    Serial.println(message);
+    switch (message[0])
+    {
+      case 'd':
+        trys_int = message.substring(1).toInt();
+        trys_bool = true;
+        break;
+      case 's':
+        trys_bool = false;
+        digitalWrite(7, LOW);
+        break;
+    }
+  }
+  if (trys_bool == true) {
+    trys(trys_int);
   }
 }

@@ -20,7 +20,6 @@ def main():
 @app.route("/on/<hype>", methods=["POST", "GET"])
 def on(hype):
     data = b'd' + bytes(hype, 'utf-8')
-    print(data)
     host = "192.168.10.3"
     port = 2000
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -42,4 +41,4 @@ def off():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', debug=True)

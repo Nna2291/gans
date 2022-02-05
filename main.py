@@ -29,13 +29,49 @@ def on(hype):
     return "<p>ON</p>"
 
 
-@app.route("/off", methods=["POST"])
-def off():
+@app.route("/on/head/<hype>", methods=["POST", "GET"])
+def on_head(hype):
+    data = b'm' + bytes(hype, 'utf-8')
     host = "192.168.10.3"
     port = 2000
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
-    s.sendall(b's')
+    s.sendall(data)
+    s.close()
+    return "<p>ON</p>"  
+
+
+@app.route("/on_reverse/head/<hype>", methods=["POST", "GET"])
+def on_reverse_head(hype):
+    data = b'r' + bytes(hype, 'utf-8')
+    host = "192.168.10.3"
+    port = 2000
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    s.sendall(data)
+    s.close()
+    return "<p>ON</p>"
+
+
+@app.route("/off/head/", methods=["POST", "GET"])
+def off_head():
+    data = b'o'
+    host = "192.168.10.3"
+    port = 2000
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    s.sendall(data)
+    s.close()
+    return "<p>ON</p>"
+
+
+@app.route("/off/<hype>", methods=["POST"])
+def off(hype):
+    host = "192.168.10.3"
+    port = 2000
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    s.sendall(b's' + bytes(hype, 'utf-8'))
     s.close()
     return "<p>OFF</p>"
 

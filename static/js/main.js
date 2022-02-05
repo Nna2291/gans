@@ -8,8 +8,9 @@ $(document).ready(function () {
     });
     $("#off").click(function (e) {
         e.preventDefault();
+        link = "/off/" + $("#mi1").val();
         $.ajax({
-            type: "POST", url: "/off",
+            type: "POST", url: link,
         });
     });
 });

@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,300;1,700&display=swap');
-
 @import "nullstyle.css";
+
+@import "fonts.css";
 
 * {
   font-family: Ubuntu;
   font-style: italic;
+  font-weight: 300;
 }
 
 html {
@@ -233,6 +234,18 @@ input[type=range] {
   width: 10rem;
   position: relative;
   top: -0.5rem;
+}
+
+input.march_text {
+  margin-left: 0.8rem;
+}
+
+input.course_text {
+  margin-left: 1.5rem;
+}
+
+input.lag_text {
+  margin-left: 2rem;
 }
 
 div.preferences_box {

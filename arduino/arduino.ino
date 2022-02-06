@@ -1,35 +1,18 @@
-#include <Arduino.h>
+#include <ArduinoJson.h>
+
 #include <SPI.h>
 #include <UIPEthernet.h>
-#define DV11 4
-#define DV12 5
+// определяем конфигурацию сети
+byte mac[] = {0xAE, 0xB2, 0x26, 0xE4, 0x4A, 0x5C};
+byte ip[] = {192, 168, 10, 3};
 
-#define DV21 6
-#define DV22 7
-
-#define DV31 8
-#define DV32 9
-
-#define DV41 2
-#define DV42 12
-
-#define INA 15 // выходы arduino
-#define INB 16
-#define EN 14
-#define PWM A3
-
-String deletee = ",";
-int dviga[] = {DV11, DV12, DV21, DV22, DV31, DV32, DV41, DV42};
-int motorSpeed;
-byte mac[] = {0xAE, 0xB2, 0x26, 0xE4, 0x4A, 0x5C}; // MAC-адрес
-byte ip[] = {192, 168, 10, 3};                     // IP-адрес
-byte myDns[] = {192, 168, 10, 1};                  // адрес DNS-сервера
-byte gateway[] = {192, 168, 10, 1};                // адрес сетевого шлюза
-byte subnet[] = {255, 255, 255, 0};                // маска подсети
-
-EthernetServer server(2000);            // создаем сервер, порт 2000
+StaticJsonDocument<30> doc;
+StaticJsonDocument<30> task;
+EthernetServer server(80);              // создаем сервер, порт 80
 EthernetClient client;                  // объект клиент
 boolean clientAlreadyConnected = false; // признак клиент уже подключен
+
+
 String getValue(String data, char separator, int index)
 {
   int found = 0;
@@ -47,64 +30,21 @@ String getValue(String data, char separator, int index)
   }
   return found > index ? data.substring(strIndex[0], strIndex[1]) : "";
 }
+
 void setup()
 {
-  pinMode(INA, OUTPUT);
-  pinMode(INB, OUTPUT);
-  pinMode(EN, OUTPUT);
-  pinMode(PWM, OUTPUT);
-  digitalWrite(EN, HIGH);
-  for (auto number : dviga)
-  {
-    pinMode(number, OUTPUT);
-  }
-  Ethernet.begin(mac, ip, myDns, gateway, subnet); // инициализация контроллера
-  server.begin();                                  // включаем ожидание входящих соединений
-  Serial.begin(9600);                              // выводим IP-адрес контроллера
-}
-void on_head(int speeed)
-{
-  digitalWrite(INA, LOW); // крутим мотор в одну сторону
-  digitalWrite(INB, HIGH);
-  analogWrite(PWM, motorSpeed);
+  pinMode(A2, INPUT);
+  pinMode(7, OUTPUT);
+  pinMode(5, OUTPUT);
+  Ethernet.begin(mac, ip); // инициализация контроллера
+  server.begin();          // включаем ожидание входящих соединений
+  Serial.begin(9600);
 }
 
-void on_r_head(int speeed)
-{
-  digitalWrite(INA, HIGH); // крутим мотор в противоположную сторону
-  digitalWrite(INB, LOW);
-  analogWrite(PWM, motorSpeed);
-}
-
-void off_head()
-{
-  digitalWrite(INA, LOW); // крутим мотор в противоположную сторону
-  digitalWrite(INB, LOW);
-}
-
-void on(int D1, int D2)
-{
-  digitalWrite(D1, HIGH);
-  digitalWrite(D2, LOW);
-}
-
-void off(int D1, int D2)
-{
-  digitalWrite(D1, LOW);
-  digitalWrite(D2, LOW);
-}
-
-void on_r(int D1, int D2)
-{
-  digitalWrite(D1, LOW);
-  digitalWrite(D2, HIGH);
-}
 
 void loop()
 {
-  String message;
-  String task;
-  int value;
+  String response;
   client = server.available(); // ожидаем объект клиент
   if (client)
   {
@@ -117,32 +57,40 @@ void loop()
     while (client.available() > 0)
     {
       char chr = client.read(); // чтение символа
-      server.write(chr);
-      message += String(chr);
+      response += chr;
     }
-    Serial.println(message);
-    switch (message[0])
+    String method = response.substring(0, 4);
+    if (method == "POST")
     {
-
-    case 'd':
-      task = message.substring(1);
-      on(getValue(task, ',', 0).toInt(), getValue(task, ',', 1).toInt());
-      break;
-    case 's':
-      task = message.substring(1);
-      off(getValue(task, ',', 0).toInt(), getValue(task, ',', 1).toInt());
-      break;
-    case 'm':
-      value = message.substring(1).toInt();
-      on_head(value);
-      break;
-    case 'r':
-      value = message.substring(1).toInt();
-      on_r_head(value);
-      break;
-    case 'o':
-      off_head();
-      break;
+      String json = response.substring(response.indexOf("Content-Type: application/json") + 34);
+      deserializeJson(task, json);
+      char *task_s = task["task"];
+      String task_string = String(task_s);
+      Serial.println(task_string);
+      if (getValue(task_string, ',', 0) == "ON") {
+        int pin = getValue(task_string, ',', 1).toInt();
+        digitalWrite(pin, HIGH);
+      } else {
+        Serial.println(getValue(task_string, ',', 1).toInt());
+        int pin = getValue(task_string, ',', 1).toInt();
+        digitalWrite(pin, LOW);
+      }
+      client.println(F("HTTP/1.0 200 OK"));
+      client.println(F("Connection: close"));
+      client.stop();
+    }
+    else if (method == "GET ")
+    {
+      doc["value"] = analogRead(A2);
+      // Write response headers
+      client.println(F("HTTP/1.0 200 OK"));
+      client.println(F("Content-Type: application/json"));
+      client.println(F("Connection: close"));
+      client.print(F("Content-Length: "));
+      client.println(measureJsonPretty(doc));
+      client.println();
+      serializeJsonPretty(doc, client);
+      client.stop();
     }
   }
 }

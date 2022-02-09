@@ -1,5 +1,7 @@
 import socket
-from flask import Flask, render_template, jsonify
+
+import requests
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
@@ -9,37 +11,24 @@ def main():
     return render_template("home.html")
 
 
-# @app.route("/data-deg", methods=["GET"])
-# def deg():
-#     j = s.recv(1024)
-#     l = len(j.decode("utf-8"))
-#     data = j.decode("utf-8")[1:l - 1].split(',')
-#     return jsonify({'message': data[0]})
-#
-#
-@app.route("/on/<hype>", methods=["POST", "GET"])
-def on(hype):
-    data = b'd' + bytes(hype, 'utf-8')
-    print(data)
-    host = "192.168.10.3"
-    port = 2000
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((host, port))
-    s.sendall(data)
-    s.close()
+@app.route("/data-deg", methods=["GET"])
+def deg():
+    req = requests.get("http://192.168.10.3:80")
+    data = req.json()
+    return jsonify({'message': data['value']})
+
+
+@app.route("/on", methods=["POST", "GET"])
+def on():
+    requests.post("http://192.168.10.3:80", json=request.get_json())
     return "<p>ON</p>"
 
 
-@app.route("/off", methods=["POST"])
+@app.route("/off", methods=["POST", "GET"])
 def off():
-    host = "192.168.10.3"
-    port = 2000
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((host, port))
-    s.sendall(b's')
-    s.close()
-    return "<p>OFF</p>"
+    requests.post("http://192.168.10.3:80", json=request.get_json())
+    return "<p>ON</p>"
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', debug=True)

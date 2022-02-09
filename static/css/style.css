@@ -265,6 +265,7 @@ div.change_dir_engines {
 div.engine {
   margin-top: 1.5rem;
   position: relative;
+  width: 14rem;
 }
 
 div.engine h3 {
@@ -284,7 +285,7 @@ div.engine div.change_dir_part_box {
   border-radius: 1rem;
   overflow: hidden;
   position: absolute;
-  top: -2.5rem;
+  top: -4rem;
   left: 13.5rem;
 }
 

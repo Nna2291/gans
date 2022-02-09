@@ -192,6 +192,7 @@ div.map_img {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 div.map_img img {
@@ -236,15 +237,15 @@ input[type=range] {
   top: -0.5rem;
 }
 
-input.march_text {
+input[name=march_text] {
   margin-left: 0.8rem;
 }
 
-input.course_text {
+input[name=course_text] {
   margin-left: 1.5rem;
 }
 
-input.lag_text {
+input[name=lag_text] {
   margin-left: 2rem;
 }
 
@@ -255,4 +256,81 @@ div.preferences_box {
 div.pa_img span.text_over_img {
   top: 50%;
   transform: translateY(0);
+}
+
+div.change_dir_engines {
+  margin-top: 1rem;
+}
+
+div.engine {
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+div.engine h3 {
+  margin-left: 1.5rem;
+}
+
+div.engine button.change_dir {
+  position: absolute;
+  left: 6rem;
+  top: -0.5rem;
+  padding: 0.5rem;
+  width: 7.5rem;
+}
+
+div.engine div.change_dir_part_box {
+  display: inline-block;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: absolute;
+  top: -2.5rem;
+  left: 13.5rem;
+}
+
+div.change_dir_part_box button.change_dir_part {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  width: 6rem;
+  height: 3rem;
+}
+
+div.change_dir_part_box button.change_dir_part.active {
+  background-color: #333355;
+}
+
+div.change_dir_part_box button.change_dir_part.active:hover {
+  background-color: #666699;
+}
+
+div.change_dir_part_box button.change_dir_part:active {
+  transform: translateY(0);
+}
+
+div.change_dir_part_box button.change_dir_part.active:active {
+  background-color: #333355;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0;
+}
+
+div.marker {
+  height: 3rem;
+  position: absolute;
+  left: 3rem;
+  top: 0;
+  width: 30rem;
+}
+
+div.marker img {
+  height: 3rem;
+  rotate: 0deg;
+  top: 0rem;
+  left: 0rem;
+  transform: translateX(-50%) translateY(-50%);
 }

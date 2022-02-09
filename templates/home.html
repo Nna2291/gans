@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <script type="text/javascript" src="../static/js/jquery.min.js"></script>
     <script type="text/javascript" src="../static/js/main.js"></script>
-    <title></title>
+    <title>Control Panel</title>
 </head>
 <body>
 <div class="main">
@@ -74,7 +74,10 @@
             <div class="map">
                 <h2>Навигационная карта</h2>
                 <div class="map_img">
-                    <img src="../static/img/map.png" alt="">
+                    <img src="../static/img/map.png" alt="Image Not Found">
+                    <div class="marker">
+                        <img src="../static/img/marker.png" alt="Image Not Found">
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,9 +127,55 @@
                     </form>
                 </div>
             </div>
+            <div class="change_dir_engines">
+                <h2>Направление двигателей</h2>
+                <div class="engines">
+                    <div class="engine">
+                        <h3>Д1</h3>
+                        <button type="button" name="d1" class="change_dir">Прямое ➤</button>
+                        <div class="change_dir_part_box disabled">
+                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
+                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
+                        </div>
+                    </div>
+                    <div class="engine">
+                        <h3>Д2</h3>
+                        <button type="button" name="d2" class="change_dir">Прямое ➤</button>
+                        <div class="change_dir_part_box disabled">
+                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
+                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
+                        </div>
+                    </div>
+                    <div class="engine">
+                        <h3>Д3</h3>
+                        <button type="button" name="d3" class="change_dir">Прямое ➤</button>
+                        <div class="change_dir_part_box disabled">
+                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
+                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
+                        </div>
+                    </div>
+                    <div class="engine">
+                        <h3>Д4</h3>
+                        <button type="button" name="d4" class="change_dir">Прямое ➤</button>
+                        <div class="change_dir_part_box disabled">
+                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
+                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
+                        </div>
+                    </div>
+                    <div class="engine">
+                        <h3>Д5</h3>
+                        <button type="button" name="d5" class="change_dir">Прямое ➤</button>
+                        <div class="change_dir_part_box disabled">
+                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
+                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<script src="../static/js/scripts.js"></script>
 <script>
     function gett(){
         $.ajax({

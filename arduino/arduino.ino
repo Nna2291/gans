@@ -11,9 +11,7 @@ StaticJsonDocument<30> task;
 EthernetServer server(80);              // создаем сервер, порт 80
 EthernetClient client;                  // объект клиент
 boolean clientAlreadyConnected = false; // признак клиент уже подключен
-int pin;
-boolean work_led = false;
-int led_speed;
+
 
 String getValue(String data, char separator, int index)
 {
@@ -45,20 +43,8 @@ void loop()
 {
   String response;
   client = server.available(); // ожидаем объект клиент
-  if (work_led == true)
-  {
-    digitalWrite(pin, HIGH);
-    delay(led_speed);
-    digitalWrite(pin, LOW);
-    delay(led_speed);
-  }
-  else
-  {
-    digitalWrite(pin, LOW);
-  }
   if (client)
   {
-    // есть данные от клиента
     if (clientAlreadyConnected == false)
     {
       clientAlreadyConnected = true;
@@ -79,15 +65,14 @@ void loop()
       Serial.println(task_string);
       if (getValue(task_string, ',', 0) == "ON")
       {
-        pin = getValue(task_string, ',', 1).toInt();
-        led_speed = getValue(task_string, ',', 2).toInt();
-        work_led = true;
+        digitalWrite(getValue(task_string, ',', 1).toInt(), HIGH);
+        digitalWrite(getValue(task_string, ',', 2).toInt(), LOW);
+
       }
       else if (getValue(task_string, ',', 0) == "OF")
       {
-        pin = getValue(task_string, ',', 1).toInt();
-        digitalWrite(pin, LOW);
-        work_led = false;
+        digitalWrite(getValue(task_string, ',', 1).toInt(), LOW);
+        digitalWrite(getValue(task_string, ',', 2).toInt(), LOW);
       }
       client.println(F("HTTP/1.0 200 OK"));
       client.println(F("Connection: close"));

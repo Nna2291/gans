@@ -11,7 +11,9 @@ StaticJsonDocument<30> task;
 EthernetServer server(80);              // создаем сервер, порт 80
 EthernetClient client;                  // объект клиент
 boolean clientAlreadyConnected = false; // признак клиент уже подключен
-
+int pin;
+boolean work_led = false;
+int led_speed;
 
 String getValue(String data, char separator, int index)
 {
@@ -33,19 +35,27 @@ String getValue(String data, char separator, int index)
 
 void setup()
 {
-  pinMode(A2, INPUT);
   pinMode(7, OUTPUT);
-  pinMode(5, OUTPUT);
   Ethernet.begin(mac, ip); // инициализация контроллера
   server.begin();          // включаем ожидание входящих соединений
   Serial.begin(9600);
 }
 
-
 void loop()
 {
   String response;
   client = server.available(); // ожидаем объект клиент
+  if (work_led == true)
+  {
+    digitalWrite(pin, HIGH);
+    delay(led_speed);
+    digitalWrite(pin, LOW);
+    delay(led_speed);
+  }
+  else
+  {
+    digitalWrite(pin, LOW);
+  }
   if (client)
   {
     // есть данные от клиента
@@ -67,13 +77,17 @@ void loop()
       char *task_s = task["task"];
       String task_string = String(task_s);
       Serial.println(task_string);
-      if (getValue(task_string, ',', 0) == "ON") {
-        int pin = getValue(task_string, ',', 1).toInt();
-        digitalWrite(pin, HIGH);
-      } else {
-        Serial.println(getValue(task_string, ',', 1).toInt());
-        int pin = getValue(task_string, ',', 1).toInt();
+      if (getValue(task_string, ',', 0) == "ON")
+      {
+        pin = getValue(task_string, ',', 1).toInt();
+        led_speed = getValue(task_string, ',', 2).toInt();
+        work_led = true;
+      }
+      else if (getValue(task_string, ',', 0) == "OF")
+      {
+        pin = getValue(task_string, ',', 1).toInt();
         digitalWrite(pin, LOW);
+        work_led = false;
       }
       client.println(F("HTTP/1.0 200 OK"));
       client.println(F("Connection: close"));

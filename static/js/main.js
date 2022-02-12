@@ -2,41 +2,33 @@ $(document).ready(function () {
     $("#on").click(function (e) {
         e.preventDefault();
         link = "/on";
-        task = "ON,5," + $("#mi1").val()
+        task = "ON," + $("#mi1").val() + "," + $("#mi2").val();
         $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
-        });
-    });
-    $("#on2").click(function (e) {
-        e.preventDefault();
-        link = "/on";
-        task = "ON,7," + $("#mi1").val()
-        $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
     });
     $("#off").click(function (e) {
         e.preventDefault();
         link = "/off";
-        task = "OFF,5";
+        task = "OF," + $("#mi1").val() + "," + $("#mi2").val();
         $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
     });
-    $("#off2").click(function (e) {
+    $("#on_l").click(function (e) {
         e.preventDefault();
-        link = "/off";
-        task = "OFF,7";
+        link = "/on_l";
+        task = "OL," + $("#mi3").val() + "," + $("#mi4").val();
         $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+    });
+    $("#off_l").click(function (e) {
+        e.preventDefault();
+        link = "/off_l";
+        task = "FL," + $("#mi3").val() ;
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
     });
 });

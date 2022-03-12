@@ -18,24 +18,24 @@
                         <h3>МИ1</h3>
                         <div class="radiator">
                             <img src="../static/img/radiator.png" alt="Image Not Found">
-                            <span class="text_over_img on p_25">ИЗ</span>
-                            <span class="text_over_img on p_50">МК</span>
+                            <span class="text_over_img on" style="left:25%">ИЗ</span>
+                            <span class="text_over_img on" style="left:50%">МК</span>
                         </div>
                     </div>
                     <div class="radiator_box">
                         <h3>МИ2</h3>
                         <div class="radiator">
                             <img src="../static/img/radiator.png" alt="Image Not Found">
-                            <span class="text_over_img on p_25">ИЗ</span>
-                            <span class="text_over_img on p_50">МК</span>
+                            <span class="text_over_img on" style="left:25%">ИЗ</span>
+                            <span class="text_over_img on" style="left:50%">МК</span>
                         </div>
                     </div>
                     <div class="radiator_box">
                         <h3>МИ3</h3>
                         <div class="radiator">
                             <img src="../static/img/radiator.png" alt="Image Not Found">
-                            <span class="text_over_img on p_25">ИЗ</span>
-                            <span class="text_over_img on p_50">МК</span>
+                            <span class="text_over_img on" style="left:25%">ИЗ</span>
+                            <span class="text_over_img on" style="left:50%">МК</span>
                         </div>
                     </div>
                 </div>
@@ -82,98 +82,93 @@
             </div>
         </div>
         <div class="panel right">
+            <h2>Состояние ПА</h2>
             <div class="condition_pa">
-                <h2>Состояние ПА</h2>
-                <div class="pa_img">
+                <div class="pa">
                     <img src="../static/img/submarine.png" alt="Image Not Found">
-                    <span class="text_over_img on p_3">ГАС</span>
-                    <span class="text_over_img on p_15">ВМА1</span>
-                    <span class="text_over_img on p_25">ВМА2</span>
-                    <span class="text_over_img on p_42">МК</span>
+                    <div class="menu" id="1" name="gas" style="top:5%">
+                        <button class="menu_but on">ГАС</button>
+                        <div class="menu_box disabled">
+                            <h3 style="font-size: 1.2rem; font-style: normal;">Состояние ГАС</h3>
+                            <br><br>
+                            <h3>Бла-бла</h3>
+                        </div>
+                    </div>
+                    <div class="menu" id="2" name="engine" style="top:15%">
+                        <button class="menu_but on">ВМА1</button>
+                        <div class="menu_box disabled">
+                            <h3>Состояние аппарата, например, Стабильно работает, Напряжение: 5В</h3>
+                        </div>                    </div>
+                    <div class="menu" id="3" name="engine" style="top:25%">
+                        <button class="menu_but on">ВМА2</button>
+                        <div class="menu_box disabled">
+                            <h3>Состояние аппарата, например, Стабильно работает, Напряжение: 5В</h3>
+                        </div>
+                    </div>
+                    <div class="menu" id="4" name="mk" style="top:50%">
+                        <button class="menu_but on">МК</button>
+                        <div class="menu_box disabled">
+                            <h3>Состояние аппарата, например, Стабильно работает, Напряжение: 5В</h3>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="preferences">
-                <h2>Параметры</h2>
-                <div class="preferences_box">
-                    <form>
-                        <div class="preference">
-                            <h3>Марш</h3>
-                            <input type="text" name="march_text" value="0"
-                                   oninput="this.form.march_range.value=this.value">
-                            <input type="range" name="march_range" min="0" max="100" value="0" step="1"
-                                   oninput="this.form.march_text.value=this.value">
+                <div class="preferences">
+                    <div class="environment">
+                        <h2 style="font-size: 1.2rem; font-weight: normal;">Параметры среды</h2>
+                        <div class="variable">
+                            <h3>Температура</h3>
+                            <h3>10<span> °C</span></h3>
                         </div>
-                        <div class="preference">
-                            <h3>Глубина</h3>
-                            <input type="text" name="depth_text" value="0"
-                                   oninput="this.form.depth_range.value=this.value">
-                            <input type="range" name="depth_range" min="0" max="100" value="0" step="1"
-                                   oninput="this.form.depth_text.value=this.value">
+                        <div class="variable">
+                            <h3>Эл-сть</h3>
+                            <h3>170<span> мксм/см</span></h3>
                         </div>
-                        <div class="preference">
-                            <h3>Курс</h3>
-                            <input type="text" name="course_text" value="0"
-                                   oninput="this.form.course_range.value=this.value">
-                            <input type="range" name="course_range" min="0" max="100" value="0" step="1"
-                                   oninput="this.form.course_text.value=this.value">
-                        </div>
-                        <div class="preference">
-                            <h3>Лаг</h3>
-                            <input type="text" name="lag_text" value="0" oninput="this.form.lag_range.value=this.value">
-                            <input type="range" name="lag_range" min="0" max="100" value="0" step="1"
-                                   oninput="this.form.lag_text.value=this.value">
-                        </div>
-                        <h2 id="data"></h2>
-                    </form>
-                </div>
-            </div>
-            <div class="change_dir_engines">
-                <h2>Направление двигателей</h2>
-                <div class="engines">
-                    <div class="engine">
-                        <h3>Д1</h3>
-                        <button type="button" name="d1" class="change_dir">Прямое ➤</button>
-                        <div class="change_dir_part_box disabled">
-                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
-                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
-                            <button type="button" name="off" class="change_dir_part">Выкл</button>
+                        <div class="variable">
+                            <h3>Раств. вещ.</h3>
+                            <h3>90<span> мг/л</span></h3>
                         </div>
                     </div>
-                    <div class="engine">
-                        <h3>Д2</h3>
-                        <button type="button" name="d2" class="change_dir">Прямое ➤</button>
-                        <div class="change_dir_part_box disabled">
-                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
-                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
-                            <button type="button" name="off" class="change_dir_part">Выкл</button>
+                    <br><br>
+                    <div class="control">
+                        <h2 style="font-size: 1.2rem; font-weight: normal;">Управление</h2>
+                        <div class="variable">
+                            <h3>Координаты</h3>
+                            <h3>(<span>12</span>; <span>34</span>)</h3>
                         </div>
-                    </div>
-                    <div class="engine">
-                        <h3>Д3</h3>
-                        <button type="button" name="d3" class="change_dir">Прямое ➤</button>
-                        <div class="change_dir_part_box disabled">
-                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
-                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
-                            <button type="button" name="off" class="change_dir_part">Выкл</button>
+                        <div class="variable">
+                            <h3>Ориент.</h3>
+                            <h3>(<span>12</span>; <span>34</span>; <span>58</span>)</h3>
                         </div>
-                    </div>
-                    <div class="engine">
-                        <h3>Д4</h3>
-                        <button type="button" name="d4" class="change_dir">Прямое ➤</button>
-                        <div class="change_dir_part_box disabled">
-                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
-                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
-                            <button type="button" name="off" class="change_dir_part">Выкл</button>
-                        </div>
-                    </div>
-                    <div class="engine">
-                        <h3>Д5</h3>
-                        <button type="button" name="d5" class="change_dir">Прямое ➤</button>
-                        <div class="change_dir_part_box disabled">
-                            <button type="button" name="forward" class="change_dir_part active">Прямое</button>
-                            <button type="button" name="backward" class="change_dir_part">Реверсное</button>
-                            <button type="button" name="off" class="change_dir_part">Выкл</button>
-                        </div>
+                        <br><br>
+                        <form>
+                            <div class="preference">
+                                <h3>Марш</h3>
+                                <input type="text" name="march_text" value="0"
+                                        oninput="this.form.march_range.value=this.value">
+                                <input type="range" name="march_range" min="0" max="100" value="0" step="1"
+                                        oninput="this.form.march_text.value=this.value">
+                            </div>
+                            <div class="preference">
+                                <h3>Глубина</h3>
+                                <input type="text" name="depth_text" value="0"
+                                        oninput="this.form.depth_range.value=this.value">
+                                <input type="range" name="depth_range" min="0" max="100" value="0" step="1"
+                                        oninput="this.form.depth_text.value=this.value">
+                            </div>
+                            <div class="preference">
+                                <h3>Курс</h3>
+                                <input type="text" name="course_text" value="0"
+                                        oninput="this.form.course_range.value=this.value">
+                                <input type="range" name="course_range" min="0" max="100" value="0" step="1"
+                                        oninput="this.form.course_text.value=this.value">
+                            </div>
+                            <div class="preference">
+                                <h3>Лаг</h3>
+                                <input type="text" name="lag_text" value="0" oninput="this.form.lag_range.value=this.value">
+                                <input type="range" name="lag_range" min="0" max="100" value="0" step="1"
+                                        oninput="this.form.lag_text.value=this.value">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

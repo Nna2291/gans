@@ -1,21 +1,24 @@
-const changeDirBox = document.querySelectorAll('.change_dir_part_box');
+const changeDirBox = document.querySelectorAll('.menu_box');
+const prefs = document.querySelector('.preferences')
 const marker = document.querySelector('.marker');
 
 document.addEventListener('click', openMenu);
 document.addEventListener('click', changeState);
 
 function openMenu(event) {
-    if (event.target.closest('.change_dir')) {
+    if (event.target.closest('.menu')) {
         for (dirBox of changeDirBox) {
-            dirBox.setAttribute('class', 'change_dir_part_box disabled');
+            dirBox.setAttribute('class', 'menu_box disabled');
         }
-        id = +event.target.closest('.change_dir').getAttribute('name').slice(1) - 1;
-        changeDirBox[id].setAttribute('class', 'change_dir_part_box');
+        id = +event.target.closest('.menu').getAttribute('id') - 1;
+        changeDirBox[id].setAttribute('class', 'menu_box');
+        prefs.setAttribute('class', 'preferences disabled')
     }
-    if (!(event.target.closest('.change_dir') || event.target.closest('.change_dir_part_box'))) {
+    if (!(event.target.closest('.menu') || event.target.closest('.menu_box'))) {
         for (dirBox of changeDirBox) {
-            dirBox.setAttribute('class', 'change_dir_part_box disabled');
+            dirBox.setAttribute('class', 'menu_box disabled');
         }
+        prefs.setAttribute('class', 'preferences')
     }
 }
 

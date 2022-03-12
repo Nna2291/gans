@@ -29,8 +29,8 @@ div.container {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 90%;
-  margin: 2% 5% 0 5%;
+  width: 99%;
+  padding: 1rem 2rem 0 2rem;
 }
 
 div.panel {
@@ -108,26 +108,6 @@ span.text_over_img.err {
   background: rgba(255,0,0,0.9);
 }
 
-span.text_over_img.p_3 {
-  left: 3%;
-}
-
-span.text_over_img.p_15 {
-  left: 15%;
-}
-
-span.text_over_img.p_25 {
-  left: 25%;
-}
-
-span.text_over_img.p_42 {
-  left: 42%;
-}
-
-span.text_over_img.p_50 {
-  left: 50%;
-}
-
 div.connections {
   margin: 1rem 0 1rem 0;
 }
@@ -200,119 +180,24 @@ div.map_img img {
 }
 
 div.condition_pa {
-  margin-bottom: 1rem;
-}
-
-div.pa_img, img {
-  position: relative;
-  display: inline;
-  display: flex;
-  justify-content: center;
-}
-
-div.pa_img img {
-  height: 4rem;
-  top: 1rem;
-}
-
-div.preferences {
-  margin-top: 1rem;
-}
-
-div.preference {
-  margin-top: 0.5rem;
   display: flex;
   justify-content: space-between;
 }
 
-div.preference input[type=text] {
-  width: 4rem;
+div.pa, img {
   position: relative;
-  top: -0.5rem;
+  display: inline;
+  display: flex;
+  justify-content: left;
 }
 
-input[type=range] {
-  width: 10rem;
-  position: relative;
-  top: -0.5rem;
+div.pa img {
+  height: 33rem;
+  top: 1rem;
 }
 
-input[name=march_text] {
-  margin-left: 0.8rem;
-}
-
-input[name=course_text] {
-  margin-left: 1.5rem;
-}
-
-input[name=lag_text] {
-  margin-left: 2rem;
-}
-
-div.preferences_box {
-  margin-top: 1rem;
-}
-
-div.pa_img span.text_over_img {
-  top: 50%;
-  transform: translateY(0);
-}
-
-div.change_dir_engines {
-  margin-top: 1rem;
-}
-
-div.engine {
-  margin-top: 1.5rem;
-  position: relative;
-  width: 14rem;
-}
-
-div.engine h3 {
-  margin-left: 1.5rem;
-}
-
-div.engine button.change_dir {
-  position: absolute;
-  left: 6rem;
-  top: -0.5rem;
-  padding: 0.5rem;
-  width: 7.5rem;
-}
-
-div.engine div.change_dir_part_box {
-  display: inline-block;
-  border-radius: 1rem;
-  overflow: hidden;
-  position: absolute;
-  top: -4rem;
-  left: 13.5rem;
-}
-
-div.change_dir_part_box button.change_dir_part {
-  display: block;
-  padding: 0.5rem;
-  border-radius: 0;
-  border: 0;
-  margin: 0;
-  width: 6rem;
-  height: 3rem;
-}
-
-div.change_dir_part_box button.change_dir_part.active {
-  background-color: #333355;
-}
-
-div.change_dir_part_box button.change_dir_part.active:hover {
-  background-color: #666699;
-}
-
-div.change_dir_part_box button.change_dir_part:active {
-  transform: translateY(0);
-}
-
-div.change_dir_part_box button.change_dir_part.active:active {
-  background-color: #333355;
+div.pa span.text_over_img {
+  left: 2.25rem;
 }
 
 .disabled {
@@ -334,4 +219,88 @@ div.marker img {
   top: 0rem;
   left: 0rem;
   transform: translateX(-50%) translateY(-50%);
+}
+
+div.menu {
+  position: absolute;
+  top: 0%;
+  left: 35%;
+}
+
+button.menu_but {
+  position: relative;
+  background: rgba(0,255,0,0.9);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0;
+  width: 2rem;
+  text-align: center;
+  color: #19192A;
+  font-size: 0.5rem;
+}
+
+button.menu_but.on {
+  background: rgba(0,255,0,0.9);
+}
+
+button.menu_but.off {
+  background: rgba(150,150,150,0.9);
+}
+
+button.menu_but.err {
+  background: rgba(255,0,0,0.9);
+}
+
+button.menu_but:hover {
+  background: rgba(150,150,150,0.9);
+}
+
+button.menu_but:active {
+  transform: translateY(0.1rem);
+}
+
+div.menu_box {
+  position: absolute;
+  top: 0%;
+  left: 3rem;
+  background: #19192A;
+  width: 17rem;
+  border-radius: .5rem;
+  padding: .5rem 0 .5rem .5rem;
+}
+
+div.control input[type=text] {
+  width: 3.8rem;
+  margin-left: 0.3rem;
+}
+
+div.control input[type=text][name=march_text] {
+  margin-left: 1.1rem;
+}
+
+div.control input[type=text][name=course_text] {
+  margin-left: 1.7rem;
+}
+
+div.control input[type=text][name=lag_text] {
+  margin-left: 2.2rem;
+}
+
+div.control input[type=range] {
+  transform: translateY(0.2rem);
+  width: 3.9rem;
+}
+
+div.preferences {
+  width: 13rem;
+  padding: .5rem;
+}
+
+div.variable {
+  margin-top: .5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.variable:nth-child(2) {
+  margin-top: 1rem;
 }

@@ -26,7 +26,7 @@ function changeState(event) {
     if (event.target.closest('.change_dir_part')) {
         let targ = event.target.closest('.change_dir_part');
         for (butt of targ.parentElement.children) {
-                butt.setAttribute('class', 'change_dir_part');
+            butt.setAttribute('class', 'change_dir_part');
         }
         targ.setAttribute('class', 'change_dir_part active');
         targ.parentElement.parentElement.children[1].innerText = targ.innerText + ' ➤';

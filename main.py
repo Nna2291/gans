@@ -1,6 +1,5 @@
-import socket
-
 import requests
+import serial
 from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
@@ -20,13 +19,15 @@ def deg():
 
 @app.route("/on", methods=["POST", "GET"])
 def on():
-    requests.post("http://192.168.10.3:80", json=request.get_json())
+    data = request.get_json()
+    requests.post('http://192.168.10.3:80/', json=data)
     return "<p>ON</p>"
 
 
 @app.route("/off", methods=["POST", "GET"])
 def off():
-    requests.post("http://192.168.10.3:80", json=request.get_json())
+    data = request.get_json()
+    requests.post('http://192.168.10.3:80/', json=data)
     return "<p>ON</p>"
 
 

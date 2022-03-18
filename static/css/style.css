@@ -43,11 +43,11 @@ div.panel.left {
 }
 
 div.panel.right {
-  width: 25%;
+  width: 30%;
 }
 
 div.panel.center {
-  width: 50%;
+  width: 45%;
 }
 
 div.condition_gans {
@@ -169,7 +169,8 @@ button:active {
 }
 
 div.map_img {
-  margin-top: 1rem;
+  margin: 1rem 3rem 0 3rem;
+  width: 30rem;
   display: flex;
   justify-content: center;
   position: relative;
@@ -208,8 +209,8 @@ div.pa span.text_over_img {
 div.marker {
   height: 3rem;
   position: absolute;
-  left: 3rem;
-  top: 0;
+  left: 0%;
+  top: 0%;
   width: 30rem;
 }
 
@@ -261,9 +262,9 @@ button.menu_but:active {
 div.menu_box {
   position: absolute;
   top: 0%;
-  left: 3rem;
+  left: 4rem;
   background: #19192A;
-  width: 17rem;
+  width: 18rem;
   border-radius: .5rem;
   padding: .5rem 0 .5rem .5rem;
 }
@@ -287,20 +288,38 @@ div.control input[type=text][name=lag_text] {
 
 div.control input[type=range] {
   transform: translateY(0.2rem);
-  width: 3.9rem;
+  width: 5.9rem;
 }
 
 div.preferences {
-  width: 13rem;
+  width: 15rem;
   padding: .5rem;
 }
 
 div.variable {
-  margin-top: .5rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 div.variable:nth-child(2) {
   margin-top: 1rem;
+}
+
+h3.figure {
+  background: #444466;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  border: 0.15rem solid #19192A;
+  border-radius: .7rem;
+  margin-left: .2rem;
+  font-style: normal;
+}
+
+h3.figure:first-child {
+  margin-left: 0;
+}
+
+h3.figure:hover {
+  background: #666699;
 }

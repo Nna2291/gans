@@ -1,42 +1,100 @@
 $(document).ready(function () {
-    $("#on").click(function (e) {
+    $("#f1").click(function (e) {
         e.preventDefault();
         link = "/on";
-        task = "ON,5," + $("#mi1").val()
+        task = "DO;5;6";
         $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+        task = "DO;9;15";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
     });
-    $("#on2").click(function (e) {
+    $("#f2").click(function (e) {
+        e.preventDefault();
+        link = "/off";
+        task = "DV;5;6";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+        task = "DV;9;15";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+    });
+    $("#f3").click(function (e) {
+        e.preventDefault();
+        link = "/off";
+        task = "DR;5;6";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+        task = "DR;9;15";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+    });
+
+    $("#f11").click(function (e) {
         e.preventDefault();
         link = "/on";
-        task = "ON,7," + $("#mi1").val()
+        task = "DO;3;4";
         $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+        task = "DO;7;8";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
     });
-    $("#off").click(function (e) {
+    $("#f12").click(function (e) {
         e.preventDefault();
         link = "/off";
-        task = "OFF,5";
+        task = "DV;3;4";
         $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+        task = "DV;7;8";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
     });
-    $("#off2").click(function (e) {
+    $("#f13").click(function (e) {
         e.preventDefault();
         link = "/off";
-        task = "OFF,7";
+        task = "DR;3;4";
         $.ajax({
-            type: "POST", url: link,
-            contentType: "application/json",
-            data: JSON.stringify({"task": task})
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+        task = "DR;7;8";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+    });
+
+    $("#q1").click(function (e) {
+        e.preventDefault();
+        link = "/on";
+        task = "DO;18;19";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+    });
+    $("#q3").click(function (e) {
+        e.preventDefault();
+        link = "/off";
+        task = "DV;18;19";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
+        });
+    });
+    $("#q2").click(function (e) {
+        e.preventDefault();
+        link = "/off";
+        task = "DR;18;19";
+        $.ajax({
+            type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
     });
 });

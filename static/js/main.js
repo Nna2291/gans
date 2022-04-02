@@ -76,7 +76,7 @@ $(document).ready(function () {
     $("#q1").click(function (e) {
         e.preventDefault();
         link = "/on";
-        task = "DO;18;19";
+        task = "DO;16;17";
         $.ajax({
             type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
@@ -84,7 +84,7 @@ $(document).ready(function () {
     $("#q3").click(function (e) {
         e.preventDefault();
         link = "/off";
-        task = "DV;18;19";
+        task = "DV;16;17";
         $.ajax({
             type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });
@@ -92,7 +92,7 @@ $(document).ready(function () {
     $("#q2").click(function (e) {
         e.preventDefault();
         link = "/off";
-        task = "DR;18;19";
+        task = "DR;16;17";
         $.ajax({
             type: "POST", url: link, contentType: "application/json", data: JSON.stringify({"task": task})
         });

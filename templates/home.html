@@ -125,15 +125,15 @@
                         <h2 style="font-size: 1.2rem; font-weight: normal;">Параметры среды</h2>
                         <div class="variable">
                             <h3>Температура</h3>
-                            <h3 class="figure">10<span> °C</span></h3>
+                            <h3 class="figure" name="temp">10<span> °C</span></h3>
                         </div>
                         <div class="variable">
                             <h3>Элек-ность</h3>
-                            <h3 class="figure">170<span> мксм/см</span></h3>
+                            <h3 class="figure" name="elek">170<span> мксм/см</span></h3>
                         </div>
                         <div class="variable">
                             <h3>Раств. вещ.</h3>
-                            <h3 class="figure">90<span> мг/л</span></h3>
+                            <h3 class="figure" name="density">90<span> мг/л</span></h3>
                         </div>
                     </div>
                     <br><br>
@@ -184,24 +184,6 @@
     </div>
 </div>
 <script src="../static/js/scripts.js"></script>
-<script>
-    function gett(){
-        $.ajax({
-      url: "/data",
-      type: "get",
-
-      success: function(response) {
-        $('#data').text(response['message']);
-      },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
-    });
-}
- $(document).ready(function(){
-            gett();
-            setInterval('gett()',500);
-        });
-</script>
+<script src="../static/js/data.js"></script>
 </body>
 </html>

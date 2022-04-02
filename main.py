@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
+
 # status = {'temp': 0, 'elek': 0, 'density': 0, 'coord': (0, 0), 'orient': ('you', 'are', 'gay')}
 
 

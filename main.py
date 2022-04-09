@@ -14,24 +14,22 @@ def main():
 
 @app.route("/data", methods=["GET"])
 def deg():
-    req = requests.get("http://192.168.10.3:80/")
-    js = req.json()
-    print(js)
-    return js
+    try:
+        req = requests.get("http://192.168.10.3:80/")
+        js = req.json()
+        return js
+    except:
+        return '1'
 
 
-@app.route("/on", methods=["POST", "GET"])
-def on():
-    data = request.get_json()
-    requests.post('http://192.168.10.3:80/', json=data)
-    return "<p>ON</p>"
-
-
-@app.route("/off", methods=["POST", "GET"])
-def off():
-    data = request.get_json()
-    requests.post('http://192.168.10.3:80/', json=data)
-    return "<p>ON</p>"
+@app.route("/engine", methods=["POST", "GET"])
+def engine():
+    try:
+        data = request.get_json()
+        requests.post('http://192.168.10.3:80/', json=data)
+    except:
+        pass
+    return '1'
 
 
 if __name__ == "__main__":

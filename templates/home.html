@@ -141,39 +141,39 @@
                         <h2 style="font-size: 1.2rem; font-weight: normal;">Управление</h2>
                         <div class="variable">
                             <h3>Координаты</h3>
-                            <div><h3 class="figure">75</h3><h3 class="figure">23</h3></div>
+                            <div><h3 class="figure" name="coords_x">75</h3><h3 class="figure" name="coords_y">23</h3></div>
                         </div>
                         <div class="variable">
                             <h3>Ориентация</h3>
-                            <div><h3 class="figure">2</h3><h3 class="figure">36</h3><h3 class="figure">94</h3></div>
+                            <div><h3 class="figure" name="orient_x">2</h3><h3 class="figure" name="orient_y">36</h3><h3 class="figure" name="orient_z">94</h3></div>
                         </div>
                         <br><br>
                         <form>
                             <div class="preference">
                                 <h3>Марш</h3>
-                                <input type="text" name="march_text" value="0"
+                                <input type="text" name="march_text" value="50"
                                         oninput="this.form.march_range.value=this.value">
-                                <input type="range" name="march_range" min="0" max="100" value="0" step="1"
+                                <input type="range" name="march_range" min="0" max="100" value="50" step="50"
                                         oninput="this.form.march_text.value=this.value">
                             </div>
                             <div class="preference">
                                 <h3>Глубина</h3>
-                                <input type="text" name="depth_text" value="0"
+                                <input type="text" name="depth_text" value="50"
                                         oninput="this.form.depth_range.value=this.value">
-                                <input type="range" name="depth_range" min="0" max="100" value="0" step="1"
+                                <input type="range" name="depth_range" min="0" max="100" value="50" step="50"
                                         oninput="this.form.depth_text.value=this.value">
                             </div>
                             <div class="preference">
                                 <h3>Курс</h3>
-                                <input type="text" name="course_text" value="0"
+                                <input type="text" name="course_text" value="50"
                                         oninput="this.form.course_range.value=this.value">
-                                <input type="range" name="course_range" min="0" max="100" value="0" step="1"
+                                <input type="range" name="course_range" min="0" max="100" value="50" step="50"
                                         oninput="this.form.course_text.value=this.value">
                             </div>
                             <div class="preference">
                                 <h3>Лаг</h3>
-                                <input type="text" name="lag_text" value="0" oninput="this.form.lag_range.value=this.value">
-                                <input type="range" name="lag_range" min="0" max="100" value="0" step="1"
+                                <input type="text" name="lag_text" value="50" oninput="this.form.lag_range.value=this.value">
+                                <input type="range" name="lag_range" min="0" max="100" value="50" step="50"
                                         oninput="this.form.lag_text.value=this.value">
                             </div>
                         </form>

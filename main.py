@@ -2,7 +2,7 @@ import requests
 from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
-
+host = '192.168.1.3:80'
 
 # status = {'temp': 0, 'elek': 0, 'density': 0, 'coord': (0, 0), 'orient': ('you', 'are', 'gay')}
 
@@ -14,21 +14,15 @@ def main():
 
 @app.route("/data", methods=["GET"])
 def deg():
-    try:
-        req = requests.get("http://192.168.10.3:80/")
-        js = req.json()
-        return js
-    except:
-        return '1'
+    req = requests.get(f"http://{host}/")
+    js = req.text.rstrip()
+    print(js)
+    return js
 
 
 @app.route("/engine", methods=["POST", "GET"])
 def engine():
-    try:
-        data = request.get_json()
-        requests.post('http://192.168.10.3:80/', json=data)
-    except:
-        pass
+    requests.post(f'http://{host}/', data=request.get_json()['task'])
     return '1'
 
 

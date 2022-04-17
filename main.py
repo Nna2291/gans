@@ -4,7 +4,7 @@ import requests
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-host = '192.168.1.3:80'
+host = '192.168.10.3:80'
 Vcc = 5.0
 Vccm = 3.3
 Ka = 1000.0
@@ -22,7 +22,17 @@ def main():
 
 @app.route("/data", methods=["GET"])
 def deg():
-    req = requests.get(f"http://{host}/")
+    try:
+        req = requests.get(f"http://{host}/", timeout=0.5)
+    except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectTimeout,
+            requests.exceptions.ConnectionError) as e:
+        js = {'temp': 0, 'elek': 0, 'density': 0,
+              'orient_z': 0, 'valid': False}
+        return js
+    if req.status_code != 200:
+        js = {'temp': 0, 'elek': 0, 'density': 0,
+              'orient_z': 0, 'valid': False}
+        return js
     temp, volt, z = req.text.rstrip().split(';')
     Vm = float(volt) * Vcc / 1023
     S = Ka * pow((Vccm - Kf * Vm) / 2, Kb)
@@ -33,7 +43,8 @@ def deg():
         angle = 90 - degrees(acos(z))
     else:
         angle = degrees(acos(-z)) - 90
-    js = {'temp': temp, 'elek': round(S, 2), 'density': round(TDS, 2), 'orient_z': round(angle, 1)}
+    js = {'temp': temp, 'elek': round(S, 2), 'density': round(TDS, 2), 'orient_z': round(angle, 0),
+          'valid': True}
     return js
 
 
